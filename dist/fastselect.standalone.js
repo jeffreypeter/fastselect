@@ -543,7 +543,8 @@
         parseResponse: null, // parse server response with your handler and return processed data - function(response, fastsearchApi)
         onResultsCreate: null, // adjust results element - function($allResults, data, fastsearchApi)
         onGroupCreate: null, // adjust group element when created - function($group, groupModel, fastsearchApi)
-        onItemCreate: null // adjust item element when created - function($item, model, fastsearchApi)
+        onItemCreate: null, // adjust item element when created - function($item, model, fastsearchApi)
+        onItemRemove: null // removed item - function($item, model, fastsearchApi)
     };
 
     $.fastsearch = Fastsearch;
@@ -973,6 +974,7 @@
             this.updateDomElements();
             this.writeToInput();
 
+            this.options.onItemRemove && this.options.onItemRemove.call(this.fastsearch,$choiceItem,removedModel,this.fastsearch);
         },
 
         writeToInput: function() {
@@ -1309,6 +1311,7 @@
 
         parseData: null,
         onItemSelect: null,
+        onItemRemove: null,
         onItemCreate: null,
         onMaxItemsReached: null,
 
