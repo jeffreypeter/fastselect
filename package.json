@@ -11,7 +11,7 @@
     "name": "Damir Brekalo"
   },
   "main": "src/fastselect.js",
-  "files" ["dist/*.js","dist/*.css"]
+  "files": ["dist/*.js","dist/*.css"],
   "scripts": {
     "watch": "grunt build && grunt watch",
     "build": "grunt build",
